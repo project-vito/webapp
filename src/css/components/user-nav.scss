@@ -1,0 +1,60 @@
+.user-nav {
+  position: absolute;
+  top: 7px;
+  position: absolute;
+  right: 7px;
+
+  .icon {
+    background-image: url('../assets/icons/user.svg');
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  .open {
+    display: block !important;
+    position: absolute;
+    z-index: 10;
+    background: $background;
+    width: 100px;
+    right: -6px;
+    margin-top: 9px;
+  }
+  
+  .open a {
+    display: block;
+    color: $text-color;
+    padding: 6px 10px;
+    border-top: 1px solid $brand-color;
+  }
+}
+
+/**
+*
+* Styling From MD
+*/
+@media screen and (min-width: map-get($grid-breakpoints, "md") ) {
+  .user-nav {
+    top: 15px;
+    width: 200px;
+    position: absolute;
+    right: 0px;
+    top: 23px;
+
+    .links {
+      display: block;
+      text-align: right;
+    }
+
+    a {
+      display: inline-block;
+      padding-left: 10px;
+    }
+  }
+
+  .user-nav-desktop {
+    display: inline-block !important;
+  }
+}

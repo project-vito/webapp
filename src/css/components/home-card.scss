@@ -1,0 +1,52 @@
+.home-card {
+  position: relative;
+  margin-bottom: 20px;
+
+  .card-wrapper {
+    background-color: $grey;
+    color: $button-text-color;
+    padding: 15px;
+    height: 200px;
+  }
+
+  a, a:hover, a:visited {
+    color: $button-text-color;
+    text-decoration: none;
+  }
+
+  b {
+    font-size: 22px;
+    width: 50%;
+    display: block;
+  }
+
+  .link {
+    position: absolute;
+    bottom: 20px;
+
+    span {
+      bottom: 5px;
+      position: relative;
+    }
+  }
+
+  .link::after {
+    content: " ";
+    background-image: url('../assets/icons/arrow-card.svg');
+    width: 16px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    margin-left: 10px;
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, "sm") ) {
+  .home-card {
+    .card-wrapper {
+      height: 250px;
+    }
+  }
+}
+
