@@ -1,37 +1,38 @@
-import React from 'react';
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
+import React, { useState, useEffect, Fragment, useContext } from 'react';
+import LoginButtons from '../components/LoginButtons';
+import { Redirect } from 'react-router';
+import AppDataProvider from '../providers/AppDataProvider';
 
 const Login = () => {
-  
+  const { appInfo, setAppInfo } = useContext(AppDataProvider);
+  const [ userInfo, setUserInfo]  = useState(null);
+
+  useEffect(() => {
+    setUserInfo(localStorage.getItem('google') || localStorage.getItem('fb') || null);
+  });
+
   const responseGoogle = e => {
-    
+    localStorage.setItem('google', JSON.stringify(e.dt));
+    setUserInfo(e.dt);
   }
 
   const responseFacebook = e => {
-    console.log(e)
+    delete e.accessToken;
+    setUserInfo(e);
+    localStorage.setItem('fb', JSON.stringify(e));
+  }
+
+  const responseGoogleFail = e => {
+    localStorage.setItem('google', null);
   }
 
   return (
-    <div className="container login">
-      <h1>Login</h1>
-
-      <FacebookLogin
-        appId="506724130477751"
-        fields="name,email,picture"
-        callback={responseFacebook}
-      />
-      <br />
-      <br />
-
-
-      <GoogleLogin
-        clientId="" //CLIENTID NOT CREATED YET
-        buttonText="LOGIN WITH GOOGLE"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-      />
-    </div>
+    <Fragment>
+      { userInfo === null ? 
+        <LoginButtons responseGoogle={responseGoogle} responseFacebook={responseFacebook} responseGoogleFail={responseGoogleFail} /> : 
+        <Redirect to="/perfil" />
+      }
+    </Fragment>
   );
 }
 

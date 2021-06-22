@@ -1,9 +1,13 @@
 # Setting up Facebook and Google authentication 
 
 ## Facebook
-- follow intructions given [here](https://developers.facebook.com/docs/development/create-an-app/?locale=es_ES) to create a new Facebook App 
+- follow instructions given [here](https://developers.facebook.com/docs/development/create-an-app/?locale=es_ES) to create a new Facebook App 
+- Get the Facebook ID and put it into the .env file at the root of this project
 
 ## Google
+- Follow instructions given [here](https://developers.google.com/adwords/api/docs/guides/authentication) to create google client id
+- For this implementatio use the Web Aplication in aplication type section.
+- Get the Google Client ID and put it into the .env file at the root of this project
 
 # Getting Started with Create React App
 
