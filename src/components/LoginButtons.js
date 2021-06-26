@@ -18,7 +18,7 @@ const LoginButtons = props =>
 
   <GoogleLogin
     clientId={REACT_APP_GOOGLE_CLIENT_ID}
-    buttonText="LOGIN WITH GOOGLE"
+    buttonText="LOGEARSE CON GOOGLE"
     onSuccess={props.responseGoogle}
     onFailure={props.responseGoogleFail}
   />

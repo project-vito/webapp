@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import AppDataProvider from '../providers/AppDataProvider';
 
 const UserNav = props => {
   const [open, setOpen] = useState(false);
+  const { appInfo, setAppInfo } = useContext(AppDataProvider);
+  
   let {
     className,
     ...otherProps
@@ -25,8 +28,10 @@ const UserNav = props => {
     <div className={classNames}>
       <a onClick={onOpenMenu} className="icon d-block d-sm-none" href="javascript:false"></a>
       <div className={`links d-none d-md-block ${open && 'open'}`}>
-        <Link onClick={onCloseMenu} to="/login">log in</Link>
-        <Link onClick={onCloseMenu} to="/registro">Registro</Link>
+        {appInfo.userInfo === null && <Link onClick={onCloseMenu} to="/login">log in</Link>  }
+       { 
+        //<Link onClick={onCloseMenu} to="/registro">Registro</Link>
+       } 
       </div>
     </div>
   );

@@ -12,14 +12,20 @@ const Login = () => {
   });
 
   const responseGoogle = e => {
-    localStorage.setItem('google', JSON.stringify(e.dt));
     setUserInfo(e.dt);
+    setAppInfo({...appInfo, userInfo: e.dt});
+    
+    localStorage.setItem('google', JSON.stringify(e.dt));
   }
 
   const responseFacebook = e => {
-    delete e.accessToken;
-    setUserInfo(e);
-    localStorage.setItem('fb', JSON.stringify(e));
+    if(e.status !== "unknown" && e.status !== "error") {
+      delete e.accessToken;
+      setUserInfo(e);
+      setAppInfo({...appInfo, userInfo: e});
+
+      localStorage.setItem('fb', JSON.stringify(e));
+    }
   }
 
   const responseGoogleFail = e => {

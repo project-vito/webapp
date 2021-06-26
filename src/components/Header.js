@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {
   Link
 } from "react-router-dom";
 import LogoLG from '../css/assets/icons/cat-md.svg'
 import LogoSM from '../css/assets/icons/cat-sm.svg'
 import UserNav from './UserNav';
+import Provider from '../providers/AppDataProvider';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const  { appInfo, setAppInfo } = useContext(Provider);
 
   useEffect(() => {
     
