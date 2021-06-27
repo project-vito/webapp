@@ -19,7 +19,6 @@ const Login = () => {
   });
 
   const responseGoogle = e => {
-    console.log(e);
     userInfoSchema.name = e.dt.uU;
     userInfoSchema.fullName = e.dt.Ve;
     userInfoSchema.email = e.dt.Nt;
