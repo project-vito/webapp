@@ -6,30 +6,50 @@ import AppDataProvider from '../providers/AppDataProvider';
 const Login = () => {
   const { appInfo, setAppInfo } = useContext(AppDataProvider);
   const [ userInfo, setUserInfo]  = useState(null);
+  const userInfoSchema = {
+    name: null,
+    email: null,
+    id: null,
+    photo: null,
+    fullName: null
+  }
 
   useEffect(() => {
-    setUserInfo(localStorage.getItem('google') || localStorage.getItem('fb') || null);
+    setUserInfo(localStorage.getItem('session') || null);
   });
 
   const responseGoogle = e => {
-    setUserInfo(e.dt);
-    setAppInfo({...appInfo, userInfo: e.dt});
+    console.log(e);
+    userInfoSchema.name = e.dt.uU;
+    userInfoSchema.fullName = e.dt.Ve;
+    userInfoSchema.email = e.dt.Nt;
+    userInfoSchema.photo = e.dt.DJ;
+    userInfoSchema.id = e.dt.LS;
+
+    setUserInfo(userInfoSchema);
+
+    setAppInfo({...appInfo, userInfo: userInfoSchema});
     
-    localStorage.setItem('google', JSON.stringify(e.dt));
+    localStorage.setItem('session', JSON.stringify(userInfoSchema));
   }
 
-  const responseFacebook = e => {
+  const responseFacebook = e => { 
     if(e.status !== "unknown" && e.status !== "error") {
-      delete e.accessToken;
-      setUserInfo(e);
-      setAppInfo({...appInfo, userInfo: e});
+      
+      userInfoSchema.name = e.name;
+      userInfoSchema.email = e.email;
+      userInfoSchema.photo = e.picture.data.url;
+      userInfoSchema.id = e.userId;
 
-      localStorage.setItem('fb', JSON.stringify(e));
+      setUserInfo(userInfoSchema);
+      setAppInfo({...appInfo, userInfo: userInfoSchema});
+
+      localStorage.setItem('session', JSON.stringify(userInfoSchema));
     }
   }
 
   const responseGoogleFail = e => {
-    localStorage.setItem('google', null);
+    localStorage.setItem('session', null);
   }
 
   return (

@@ -6,6 +6,7 @@
 */
 @import './pages/home.scss';
 @import './pages/login.scss';
+@import './pages/profile.scss';
 
 /**
 *
@@ -52,4 +53,15 @@ h1 {
   font-size: 22px;
 }
 
+.button, .button:hover, .button:visited {
+  background-color: $button-color;
+  color: $button-text-color;
+  padding:10px 20px;
+  text-decoration: none;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+}
 

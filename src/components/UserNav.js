@@ -26,12 +26,11 @@ const UserNav = props => {
 
   return (
     <div className={classNames}>
-      <a onClick={onOpenMenu} className="icon d-block d-sm-none" href="javascript:false"></a>
+      { appInfo.userInfo === null && <a onClick={onOpenMenu} className="icon d-block d-sm-none" href="javascript:false"></a> }
+      { appInfo.userInfo !== null &&  <Link className="d-block d-sm-none" to="/perfil"><img className="user-thumb" src={appInfo.userInfo.photo} alt="" /></Link> } 
       <div className={`links d-none d-md-block ${open && 'open'}`}>
-        {appInfo.userInfo === null && <Link onClick={onCloseMenu} to="/login">log in</Link>  }
-       { 
-        //<Link onClick={onCloseMenu} to="/registro">Registro</Link>
-       } 
+        { appInfo.userInfo === null && <Link onClick={onCloseMenu} to="/login">log in</Link> }
+        { appInfo.userInfo !== null &&  <Link className="d-none d-sm-block" to="/perfil">Hola {appInfo.userInfo.name.split(' ')[0]} <img className="user-thumb" src={appInfo.userInfo.photo} alt="" /></Link> } 
       </div>
     </div>
   );

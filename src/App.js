@@ -22,10 +22,13 @@ import {
   Route
 } from "react-router-dom";
 
+let userInfo = JSON.parse(localStorage.getItem('session') || null);
+
 let globalState = {
-  userInfo: null,
+  userInfo: userInfo,
   cart: null,
 }
+
 
 const App = () => {
   const [ appInfo, setAppInfo ]  = useState(globalState);
