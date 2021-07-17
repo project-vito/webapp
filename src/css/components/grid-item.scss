@@ -1,7 +1,8 @@
 .grid-item {
   display: inline-block;
   margin-bottom: 10px;
-  
+  position: relative;
+
   .image-wrapper { 
     height: 180px;
     background-size: cover;
