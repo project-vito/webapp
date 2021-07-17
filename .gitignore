@@ -13,6 +13,9 @@
 # production
 /build
 
+# fake api 
+db.json
+
 # misc
 .DS_Store
 .env.local

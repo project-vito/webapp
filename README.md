@@ -1,15 +1,3 @@
-# Setting up Facebook and Google authentication 
-
-## Facebook
-- follow instructions given [here](https://developers.facebook.com/docs/development/create-an-app/?locale=es_ES) to create a new Facebook App.
-- Get the Facebook ID and put it into the .env file at the root of this project.
-- For facebook apps is required a SSL host to make the app working on development stage, this can be fixed using [ngrok](https://ngrok.com/) see an tutorial [here](https://www.youtube.com/watch?v=oy13mDsXC4s&t=1s).
-
-## Google
-- Follow instructions given [here](https://developers.google.com/adwords/api/docs/guides/authentication) to create google client id.
-- For this implementatio use the Web Aplication in aplication type section.
-- Get the Google Client ID and put it into the .env file at the root of this project.
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -81,5 +69,66 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+# Setting up Facebook and Google authentication 
+
+## Facebook
+- follow instructions given [here](https://developers.facebook.com/docs/development/create-an-app/?locale=es_ES) to create a new Facebook App.
+- Get the Facebook ID and put it into the .env file at the root of this project.
+- For facebook apps is required a SSL host to make the app working on development stage, this can be fixed using [ngrok](https://ngrok.com/) see an tutorial [here](https://www.youtube.com/watch?v=oy13mDsXC4s&t=1s).
+
+## Google
+- Follow instructions given [here](https://developers.google.com/adwords/api/docs/guides/authentication) to create google client id.
+- For this implementatio use the Web Aplication in aplication type section.
+- Get the Google Client ID and put it into the .env file at the root of this project.
+
+# Fake API
+
+For frontend development purpose this project include a fake api tool [JSON server](https://www.npmjs.com/package/json-server), to start this local service run the command:
+
+```
+yarn fake-api
+```
+
+the results will be exposed on [this URL]( http://localhost:3001/)
 
 
+## DB service definition
+
+For the initial setup create a `db.json` at the root of this project, and fill it with the next definition.
+
+```
+{
+  "petlist": [
+    { 
+      "id": 1, 
+      "title": "Canelo",
+      "thumb": "https://www.uniquelycats.com/wp-content/uploads/2020/05/sad-cat-2048x1366.jpeg",
+      "rate": 2
+    },
+    { 
+      "id": 1, 
+      "title": "Canelo",
+      "thumb": "https://www.uniquelycats.com/wp-content/uploads/2020/05/sad-cat-2048x1366.jpeg",
+      "rate": 3
+    },
+    { 
+      "id": 1, 
+      "title": "Canelo",
+      "thumb": "https://www.uniquelycats.com/wp-content/uploads/2020/05/sad-cat-2048x1366.jpeg",
+      "rate": 4
+    },
+    { 
+      "id": 1, 
+      "title": "Canelo",
+      "thumb": "https://www.uniquelycats.com/wp-content/uploads/2020/05/sad-cat-2048x1366.jpeg",
+      "rate": 2
+    },
+    { 
+      "id": 1, 
+      "title": "Canelo",
+      "thumb": "https://www.uniquelycats.com/wp-content/uploads/2020/05/sad-cat-2048x1366.jpeg",
+      "rate": 2
+    }
+  ]
+}
+```
