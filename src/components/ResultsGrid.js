@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState, useContext } from 'react';
+import GridItem from './GridItem';
 
 const ResultsGid = props => {
   const hostUrl = process.env.REACT_APP_APIHOST || 'http://localhost:3001/';
@@ -18,7 +19,10 @@ const ResultsGid = props => {
 
   return (
     <div>
-      { apiData.map(e => e.name) }
+      <ul>
+        { apiData.map(e => <GridItem {...e} /> ) }
+      </ul>
+      
     </div>
   )
 };

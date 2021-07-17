@@ -16,6 +16,7 @@
 @import './components/footer.scss';
 @import './components/home-card.scss';
 @import './components/user-nav.scss';
+@import './components/grid-item.scss';
 
 body {
   margin: 0;
@@ -41,6 +42,10 @@ html, body, #root {
 .footer,
 .push {
   height: 112px;
+}
+
+a {
+  color: black;
 }
 
 ul {

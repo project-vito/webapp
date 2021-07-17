@@ -1,0 +1,21 @@
+.grid-item {
+  display: inline-block;
+  margin-bottom: 10px;
+  
+  .image-wrapper { 
+    height: 180px;
+    background-size: cover;
+  }
+}
+
+/**
+*
+* Styling From SM
+*/
+@media screen and (min-width: map-get($grid-breakpoints, "sm") ) {
+  .grid-item {
+    .image-wrapper { 
+      height: 240px;
+    }
+  }
+}
