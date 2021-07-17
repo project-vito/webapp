@@ -22,7 +22,6 @@ const ResultsGid = props => {
       <ul>
         { apiData.map(e => <GridItem {...e} /> ) }
       </ul>
-      
     </div>
   )
 };
