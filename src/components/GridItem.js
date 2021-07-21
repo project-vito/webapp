@@ -5,7 +5,7 @@ import Health from './Health';
 const GridItem = props => {  
   return (
     <li className="col-6 col-sm-6 col-md-4 grid-item">
-      <Link to={`/pet-page/${props.id}`}>
+      <Link to={`/ayudar/${props.id}`}>
         <div className="image-wrapper" style={{backgroundImage: `url(${props.thumb})`}}>
           <Health level={props.sickness} />
         </div>

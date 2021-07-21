@@ -43,7 +43,7 @@ const App = () => {
             <Route path="/ayudar-un-amigo">
               <FriendList />
             </Route>
-            <Route path="/ayudar">
+            <Route path="/ayudar/:id">
               <FriendPage />
             </Route>
             <Route path="/donaciones">
