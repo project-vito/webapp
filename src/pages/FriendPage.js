@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Health from '../components/Health';
 import Spacer from '../components/Spacer';
 import KindDonation from '../components/KindDonation';
+import { parseMoneyValue } from '../helpers'; 
 
 const FriendPage = () => {
   const { id } = useParams(); 
@@ -40,11 +42,24 @@ const FriendPage = () => {
         <Spacer className="col-12" height="20" />
 
         <div className="col-12 col-md-12 ">
-          <p> <b>Donaciones en especie</b> </p>
+          <p className="sub-title"> <b>Donaciones en especie</b> </p>
           <div className="row">
             {apiData.inKindDonations && apiData.inKindDonations.map(e => <KindDonation petId={id} className="col-6 col-md-4" {...e} />)}
           </div>
         </div> 
+
+        <Spacer className="col-12" height="20" />
+
+        <div className="donation col-12 col-md-12 ">
+          <p className="sub-title"> <b>Donaciones</b> </p>
+          <p>{apiData.name} necesita de tu ayuda, se ha recolectado:</p>
+          
+          <p className="given-p"><span className="given">{parseMoneyValue(apiData.sponsorGiven)}</span> de </p>
+          <p className="required">{parseMoneyValue(apiData.sponsorRequirement)}</p>
+        </div> 
+        <div className="donation-cta-wrapper col-12 col-md-12 ">
+          <Link className="donation-button" to="/donar">Hacer una donacion</Link>
+        </div>
 
         <Spacer className="col-12" height="20" />
       </div>

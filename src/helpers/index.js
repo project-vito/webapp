@@ -7,6 +7,16 @@ const calculateHealth = (percent, fractions) => {
   return arr;
 }
 
+const parseMoneyValue = (value) => {
+  var formatter = Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+  return formatter.format(value).replace(/\D00$/, '');
+}
+
 export {
-  calculateHealth
+  calculateHealth,
+  parseMoneyValue
 }
