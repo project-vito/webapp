@@ -1,0 +1,50 @@
+.friend-page{
+  h2 {
+    margin-top: 20px;
+  }
+
+  .friend-image {
+    height:300px;
+    background-size: cover;
+  }
+
+  .description {
+    padding-top: 80px;
+  }
+
+  .health {
+    padding: 0;
+    bottom: -60px;
+  }
+
+  .sickness {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/**
+*
+* Styling From SM
+*/
+@media screen and (min-width: map-get($grid-breakpoints, "md") ) {
+  .friend-page{
+    .description {
+      padding-top: 0;
+    }
+
+    .health {
+      position: relative;
+      padding: 0;
+      bottom: 0;
+    }
+
+    .pet-image {
+      width: 50%;
+      height:300px;
+      padding-left: 10px;
+      float: right;
+      object-fit: cover;
+    }
+  }
+}

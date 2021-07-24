@@ -10,7 +10,7 @@ const HomePage = () => {
 
       <div className="container">
         <div className="row">
-          <HomeCard className="col-12 col-md-6" title="Ayuda a un amigo" link="/ayuda-un-amigo" linkText="patrocinar una amigo"></HomeCard>
+          <HomeCard className="col-12 col-md-6" title="Ayuda a un amigo" link="/ayudar-un-amigo" linkText="patrocinar una amigo"></HomeCard>
           <HomeCard className="col-12 col-md-6" title="Donaciones" link="/donaciones"  linkText="ayudar"></HomeCard>
         </div>
       </div>

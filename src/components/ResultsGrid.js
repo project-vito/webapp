@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import React, { useEffect, useState, useContext } from 'react';
 import GridItem from './GridItem';
 
