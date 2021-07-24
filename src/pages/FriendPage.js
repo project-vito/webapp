@@ -1,12 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Health from '../components/Health';
 import Spacer from '../components/Spacer';
 import KindDonation from '../components/KindDonation';
 import { parseMoneyValue } from '../helpers'; 
 
+const UserComponent = props => <ul className="col-3 col-sm-2">
+  <img src={props.thumb} alt="" />
+  <span>{props.name}</span>
+</ul>
+
 const FriendPage = () => {
+  const history = useHistory();
   const { id } = useParams(); 
   const hostUrl = process.env.REACT_APP_APIHOST || 'http://localhost:3001/';
   const [apiData, setApiData] = useState([]);
@@ -17,6 +23,7 @@ const FriendPage = () => {
 
   const fetchData = async () => {
     let response = await fetch(`${hostUrl}pet/${id}`);
+    response.status === 404 && history.push(`/not-found`);
     let data = await response.json();
 
     setApiData(data);
@@ -61,6 +68,16 @@ const FriendPage = () => {
           <Link className="donation-button" to="/donar">Hacer una donacion</Link>
         </div>
 
+        <Spacer className="col-12" height="40" />
+
+        <div className=" col-12 col-md-12 ">
+          <p className="sub-title"> <b>Amigos que me han ayudado</b> </p>
+          <Spacer className="col-12" height="20" />
+
+          <ul className="user-list row">
+            {apiData.sponsors && apiData.sponsors.map(e => <UserComponent {...e} />)}
+          </ul>
+        </div> 
         <Spacer className="col-12" height="20" />
       </div>
     </div>
