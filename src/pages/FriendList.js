@@ -1,12 +1,14 @@
 import React from 'react';
-import ResultGrid from '../components/ResultsGrid';
+import ResultsGrid from '../components/ResultsGrid';
 import Spacer from '../components/Spacer';
 
 const FriendList = () => {
   return (
-    <div className="container FriendList">
-      <Spacer height="40" />
-      <ResultGrid />
+    <div className="container friend-list">
+      <div className="row">
+        <Spacer height="40" />
+        <ResultsGrid />
+      </div>
     </div>
   );
 }

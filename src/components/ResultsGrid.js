@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import GridItem from './GridItem';
 
 const ResultsGid = props => {
+  var { count } = props;
   const hostUrl = process.env.REACT_APP_APIHOST || 'http://localhost:3001/';
   const [apiData, setApiData] = useState([]);
 
@@ -9,6 +10,12 @@ const ResultsGid = props => {
     let response = await fetch(hostUrl + 'petlist');
     let data = await response.json();
 
+    if(count) {
+      data = data.filter(e => {
+        count--;
+        if(count >= 0) return e;
+      })
+    }
     setApiData(data);
   }
 
@@ -17,11 +24,9 @@ const ResultsGid = props => {
   },[])
 
   return (
-    <div>
-      <ul>
-        { apiData.map(e => <GridItem {...e} /> ) }
-      </ul>
-    </div>
+    <ul className="results-grid">
+      { apiData.map(e => <GridItem {...e} /> ) }
+    </ul>
   )
 };
 
